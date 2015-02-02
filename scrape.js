@@ -1,11 +1,15 @@
 var $ = require('cheerio')
 var request = require('request')
 var jf = require('jsonfile')
-var page = 883
+var MongoClient = require('mongodb').MongoClient;
+
+var firstPage = 883
+var page = firstPage
 var id = 0
 var maxPage = 969
 var activeRequests = 0
 var courses = []
+var database = null
 
 function gotHTML(err, resp, html) {
     if (err) return console.error(err)
@@ -35,6 +39,7 @@ function gotHTML(err, resp, html) {
 
         if(number == ""){
             isDone = true
+            console.log('Requests remaining: '+activeRequests)
         }
         else{
             var course = {
@@ -43,6 +48,12 @@ function gotHTML(err, resp, html) {
                 "name":name,
                 "faculty":prefix
             }
+
+            var collection = database.collection('courses');
+            collection.insert(course, function(err, records){
+                //console.log("Record added as "+JSON.stringify(records[0]));
+            });
+
             courses.push(course)
             num += 1
             id += 1
@@ -52,26 +63,31 @@ function gotHTML(err, resp, html) {
     activeRequests -= 1
 
     if(activeRequests == 0 && page > maxPage){
-        console.log(courses)
+        //console.log(courses)
         console.log('Finished with '+courses.length+' courses')
-
-        jf.writeFile("data/classes.json", courses, function(err) {
-            if(err) {
-                console.log(err);
-            } else {
-                console.log("The file was saved!");
-            }
-        });
+        database.close()
 
     }
 
 }
 
-console.log('Pulling Data...')
+console.log("Attempting to connect to DB...");
 
-while(page<=maxPage){
-    var domain = 'http://westerncalendar.uwo.ca/2015/pg'+page+'.html'
-    activeRequests += 1
-    page += 1
-    request(domain, gotHTML)
-}
+MongoClient.connect("mongodb://nodejitsu:2bd5845aaec512c3dd834f4ffe9e0105@troup.mongohq.com:10058/nodejitsudb3893233994", function(err, db) {//connect to db
+    if(err) {
+        return console.dir(err);
+    }else{
+        console.log('Connected to DB');
+        database = db
+        db.createCollection('courses', function(err, collection) {});//if it doesnt already exist, create a collection called 'courses'
+
+        console.log('Pulling Data from UWO...')
+
+        while(page<=maxPage){
+            var domain = 'http://westerncalendar.uwo.ca/2015/pg'+page+'.html'
+            activeRequests += 1
+            page += 1
+            request(domain, gotHTML)
+        }
+    }
+});
