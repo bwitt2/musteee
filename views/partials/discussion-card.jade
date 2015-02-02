@@ -1,0 +1,12 @@
+div(class='content') 
+    img(class='avatar' src='stylesheets/head.png')
+    div(class='heading') {{thread.user}} - {{thread.class}}
+    div(class='body') {{thread.content}}
+    div(class='icon-list')
+        img(class='icon' src='stylesheets/svg/message31.svg') 
+        span(){{thread.responses}}
+        img(class='icon' src='stylesheets/svg/view28.svg') 
+        span(){{thread.views}}
+        img(class='icon' src='stylesheets/svg/chain8.svg') 
+        span(){{thread.files}}
+div(class='footer')

@@ -1,0 +1,19 @@
+{
+  "name": "western_connection",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^3.2.3",
+    "jade": "^1.9.1",
+    "mongodb": "^1.4.29",
+    "mongoose": "^3.8.22",
+    "angular-route": "~1.3.0"
+  },
+  "subdomain": "musteee",
+  "engines": {
+    "node": "0.10.x"
+  }
+}

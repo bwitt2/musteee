@@ -1,0 +1,31 @@
+{
+    "classes":[
+        {
+            "id": 0,
+            "code": "ES2211G",
+            "name": "Engineering Comm.",
+            "faculty": "Software Engineering",
+            "students": 40,
+            "posts": 20, 
+            "files": 4
+        },
+        {
+            "id": 1,
+            "code": "F2606G",
+            "name": "French Lit.",
+            "faculty": "Arts and Humanities",
+            "students": 201,
+            "posts": 65, 
+            "files": 13
+        },
+        {
+            "id": 2,
+            "code": "BUS2257",
+            "name": "Business Management",
+            "faculty": "Pre-Ivey Business",
+            "students": 89,
+            "posts": 35, 
+            "files": 21
+        }
+    ]
+}
