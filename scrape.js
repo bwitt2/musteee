@@ -43,7 +43,6 @@ function gotHTML(err, resp, html) {
         }
         else{
             var course = {
-                "id":id,
                 "code":number,
                 "name":name,
                 "faculty":prefix
@@ -78,7 +77,10 @@ MongoClient.connect("mongodb://nodejitsu:2bd5845aaec512c3dd834f4ffe9e0105@troup.
         return console.dir(err);
     }else{
         console.log('Connected to DB');
+
         database = db
+
+        console.log(db.courses.drop())
         db.createCollection('courses', function(err, collection) {});//if it doesnt already exist, create a collection called 'courses'
 
         console.log('Pulling Data from UWO...')

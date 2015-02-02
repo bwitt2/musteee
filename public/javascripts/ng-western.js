@@ -13,7 +13,15 @@ westConn.controller('pageController', ['$scope', '$http','$routeParams', functio
     $scope.my_classes = [];
     $scope.logo = emojione.toImage(':horse:');
     $scope.classWithFocus = null;
-    document.getElementsByClassName('title')[0].innerHTML = 'musteee '+$scope.logo;
+
+    $scope.logoTongueOut = function(){
+        document.getElementById('logo').setAttribute('src', 'stylesheets/svg/horse-tongue.svg');
+    };
+
+    $scope.logoTongueIn = function(){
+        document.getElementById('logo').setAttribute('src', 'stylesheets/svg/horse-normal.svg');
+    };
+    //document.getElementsByClassName('title')[0].innerHTML = 'musteee '+$scope.logo;
 
     $http.get('/data/threads.json').
         success(function(data, status, headers, config) {
