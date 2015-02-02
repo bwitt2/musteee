@@ -1,8 +1,8 @@
-@primary-color: #4fadaa;
+@primary-color: #4e2583;
 @card-bg: white;
-@main-bg: #2f2f2f;
-@circle-button: #d400bc;
-@circle-button-hover: #c900b2;
+@main-bg: #fff;
+@circle-button: #8abade;
+@circle-button-hover: #79b1db;
 @top-margin: 60px;
 
 html, body, div, span, applet, object, iframe,
@@ -150,9 +150,13 @@ li:hover{
 }
 
 .content{
-   padding: 10px;
+    padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.content:hover{
+    cursor:pointer;
 }
 
 .avatar{
@@ -284,7 +288,7 @@ a{
 
 .class-card-heading{
     font-size: 3.5em;
-    color: black;
+    color: white;
     padding-top: 15px;
     text-align: center;
 }
@@ -319,4 +323,20 @@ a{
 .list-element-value{
     display: inline;
     color: black;
+}
+
+.animate-enter, 
+.animate-leave
+{ 
+  -webkit-transition: background-color 1s;
+} 
+ 
+.animate-enter.animate-enter-active, 
+.animate-leave {
+    background-color: black;
+}
+ 
+.animate-leave.animate-leave-active,
+.animate-enter {
+    background-color: black;
 }
