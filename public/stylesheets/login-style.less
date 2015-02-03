@@ -1,4 +1,7 @@
-@primary-color: #4e2583;
+@western: #4d2383;
+@primary-color: #4d2383;
+@mid: #406289;
+@secondary-color: #33a08f;  
 @card-bg: white;
 @main-bg: #fff;
 @circle-button: #8abade;
@@ -27,56 +30,103 @@ time, mark, audio, video {
             }
 
 body{
-    background-color: @primary-color;
+    
+}
+
+.gradient{
+    background: #466368;
+    background: -webkit-linear-gradient(@primary-color, @mid,  @secondary-color);
+    background:    -moz-linear-gradient(@primary-color, @mid, @secondary-color);
+    background:         linear-gradient(@primary-color, @mid, @secondary-color); /*chrome*/
+}
+
+.center{
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
     text-align: center;
 }
 
 input{
-    width: 25%;
+    width: 50%;
     height: 7%;
     border-style: none;
     border-bottom-style: solid;
     border-color: white;
     outline: none;
     background-color: rgba(0,0,0,0);
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 5px;
     color: white;
     font-family: 'Roboto';
     font-weight: 300;
-}
-
-.username{
-    margin-top: 10%;
-}
-
-.password{
     margin-top: 1%;
 }
 
-.submit-button{
+.username{
+
+}
+
+.password{
+
+}
+
+button{
+    margin-top: 6%;
     font-family: 'Roboto';
-    position: absolute;
-    float: right;
-    background-color: white;
-    padding: 10px;
-    padding-right: 25px;
-    padding-left: 25px;
-    border-radius: 4px;
-    color: rgba(0,0,0,0.9);
     font-size: 1.5em;
-    float: right;
-    border-width: 0;
-    margin: 20px;
-    outline: 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-style: none;
+    border-radius: 4px;
+    padding: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    outline: none;
     -webkit-transition: margin-top 0.2s, box-shadow 0.2s, width 1s, height 1s; /* Chrome, Safari, Opera */
     transition: margin-top 0.2s, box-shadow 0.2s, width 1s, height 1s;
-    
+}
+
+.submit-button{
+    margin-left: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sign-up-button{
+    background-color: rgba(0,0,0,0);
+    color: white;
 }
 
 .submit-button:hover{
     cursor: pointer;
-    margin-top: 17px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    /*margin-top: 25px;*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
+
+.sign-up-button:hover{
+    cursor: pointer;
+}
+
+.title{
+    font-family: 'Roboto';
+    font-size: 4em;
+    color: white;
+    display: inline;
+    margin-bottom: 3%;
+}
+
+#horse{
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 1%;
+}
+
+.header{
+    margin-top: 15%;
+}
+
+.buttons{
+    text-align: center;
+}
+

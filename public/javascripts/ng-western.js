@@ -4,7 +4,7 @@ westConn.config(['$routeProvider', function($routeProvider){
     $routeProvider
     .when('/:name', {
         controller: 'pageController'
-      })
+    })
     .otherwise({redirectTo: '/'});
 }]);
 
@@ -24,18 +24,18 @@ westConn.controller('pageController', ['$scope', '$http','$routeParams', functio
     //document.getElementsByClassName('title')[0].innerHTML = 'musteee '+$scope.logo;
 
     $http.get('/data/threads.json').
-        success(function(data, status, headers, config) {
-            $scope.threads = data;
+    success(function(data, status, headers, config) {
+        $scope.threads = data;
     }).
-        error(function(data, status, headers, config) {
-            console.log('error reading json file.')
-        });
-    
-$scope.classFocusChanged = function(classWithFocus){
-      $scope.classWithFocus = classWithFocus;
-      console.log($scope.classWithFocus); 
+    error(function(data, status, headers, config) {
+        console.log('error reading json file.')
+    });
+
+    $scope.classFocusChanged = function(classWithFocus){
+        $scope.classWithFocus = classWithFocus;
+        console.log($scope.classWithFocus); 
     };
-    
+
 }]);
 
 
@@ -53,13 +53,13 @@ westConn.controller('classesController', ['$scope', '$http', function($scope, $h
     $scope.expandFooter = function(element){
 
     };
-        $http.get('/data/my_classes.json').
-        success(function(data, status, headers, config) {           console.log(data);
-            $scope.my_classes = data;
-    }).
-        error(function(data, status, headers, config) {
-            console.log('error reading json file.')
-        });
+    $http.get('/data/my_classes.json').
+    success(function(data, status, headers, config) {           console.log(data);
+                                                     $scope.my_classes = data;
+                                                    }).
+    error(function(data, status, headers, config) {
+        console.log('error reading json file.')
+    });
 }]);
 
 westConn.controller('classCardController', ['$scope', '$routeParams', function($scope, $routeParams){
@@ -68,56 +68,56 @@ westConn.controller('classCardController', ['$scope', '$routeParams', function($
 
 westConn.directive('discussionCard', function() {
     return {
-      restrict: 'E',
-      templateUrl: '/partials/discussion-card.jade',
-  };
+        restrict: 'E',
+        templateUrl: '/partials/discussion-card.jade',
+    };
 });
 
 
 westConn.directive('classCard', function() {
-  return {
-      restrict: 'E',
-      templateUrl: '/partials/class-card.jade'
-  };
+    return {
+        restrict: 'E',
+        templateUrl: '/partials/class-card.jade'
+    };
 });
 
 
 
 westConn.directive('classesListCard', function() {
-  return {
-      restrict: 'E',
-      templateUrl: '/partials/classes-list-card.jade'
-  };
+    return {
+        restrict: 'E',
+        templateUrl: '/partials/classes-list-card.jade'
+    };
 });
 
 
 
 westConn.directive('mouseOver', function() {
-  return function(scope, element) {
-    var footer = element[0].getElementsByClassName('footer')[0];
-    var button = document.createElement('button');
-    button.classList.add('footer-button');
-    button.textContent = 'RESPOND';
-    button.classList.add('hide-button');
-    footer.appendChild(button);
-    element
-    .bind('mouseover', function() {
-        if(footer.classList.contains('condenseFooter')){
-            footer.classList.remove('condenseFooter');
-            button.classList.remove('hide-button');
-        }
-        footer.classList.add('expandFooter');
-        button.classList.add('show-button');
-    })
-    .bind('mouseleave', function(){
-        if(footer.classList.contains('expandFooter')){
-            footer.classList.remove('expandFooter');
-            button.classList.remove('show-button');
-        }
-        footer.classList.add('condenseFooter');
+    return function(scope, element) {
+        var footer = element[0].getElementsByClassName('footer')[0];
+        var button = document.createElement('button');
+        button.classList.add('footer-button');
+        button.textContent = 'RESPOND';
         button.classList.add('hide-button');
-  });
-  };
+        footer.appendChild(button);
+        element
+        .bind('mouseover', function() {
+            if(footer.classList.contains('condenseFooter')){
+                footer.classList.remove('condenseFooter');
+                button.classList.remove('hide-button');
+            }
+            footer.classList.add('expandFooter');
+            button.classList.add('show-button');
+        })
+        .bind('mouseleave', function(){
+            if(footer.classList.contains('expandFooter')){
+                footer.classList.remove('expandFooter');
+                button.classList.remove('show-button');
+            }
+            footer.classList.add('condenseFooter');
+            button.classList.add('hide-button');
+        });
+    };
 });
 
 

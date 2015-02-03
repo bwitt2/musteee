@@ -1,15 +1,23 @@
 html()
     head()
+        link(rel="shortcut icon" href="stylesheets/favicon.ico")
         title() musteee
         meta(charset="utf-8")
         link(rel='stylesheet/less', href='/stylesheets/login-style.less')
         link(href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css')
         script(src="/javascripts/vendor/less/dist/less.js" type="text/javascript")
-    body()
-        div()
-            input(type='text' class='username' placeholder='username')
-            br()
-            input(type='password' class='password' placeholder='password')
-            br()
-            button(class='submit-button') SUBMIT
+        script(type='text/javascript', src='/javascripts/vendor/angular/angular.js')
+        script(type='text/javascript', src='javascripts/ng-login.js')
+    body(ng-app='login' ng-controller='loginController' class='gradient')
+        div(class='center')
+            div(class='header')
+                div(class='title') musteee
+                img(id='horse' src='stylesheets/svg/horse-normal.svg' ng-mouseover='logoTongueOut()' ng-mouseout='logoTongueIn()')
+            div(id='textfield-div')
+                input(type='text' class='username' id='username' placeholder='username')
+                br()
+                input(type='password' class='password' id='password' placeholder='password')
+            div(class='buttons')
+                button(class='sign-up-button' ng-click='showSignUpFields()') SIGN UP
+                button(class='submit-button' ng-click='hideSignUpFields()') LOGIN
         

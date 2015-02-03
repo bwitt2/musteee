@@ -5,6 +5,7 @@ html(ng-app="westConn")
   
   
   head
+    link(rel="shortcut icon" href="stylesheets/favicon.ico")
     title() musteee
     meta(charset="utf-8")
     link(rel='stylesheet/less', href='/stylesheets/style.less')
@@ -21,7 +22,7 @@ html(ng-app="westConn")
   
   
   body(class='main' ng-controller='pageController')
-        header(sticky)
+        header(sticky class='gradient')
             p(class='title') musteee
             img(src='stylesheets/svg/horse-normal.svg' id='logo' ng-mouseover='logoTongueOut()' ng-mouseout='logoTongueIn()')
             img(class='menu' src='javascripts/vendor/material-design-icons/navigation/drawable-hdpi/ic_more_vert_white_48dp.png')

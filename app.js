@@ -19,7 +19,7 @@ var app = express();
 var db = Mongoose.createConnection('localhost', 'mytestapp');*/
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3030);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
