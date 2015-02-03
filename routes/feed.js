@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('feed', { title: 'this is the feed!' });
+  res.render('layout', {});
 };

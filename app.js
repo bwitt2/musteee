@@ -9,7 +9,7 @@ var express = require('express')
   , partials = require('./routes/partials')
   , data = require('./routes/data')
   , threads = require('./routes/')
-  , user = require('./routes/user')
+  , login = require('./routes/login')
   , http = require('http')
   , path = require('path')
 
@@ -35,7 +35,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);;
-app.get('/users', user.list);
+app.get('/login', login.index);
 app.get('/feed', feed.index);
 app.get('/partials/:name', partials.partials);
 app.get('/data/:name', data.data);
