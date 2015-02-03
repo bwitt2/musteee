@@ -1,2 +1,2 @@
-# musteee  ![alt tag](https://github.com/Ranks/emojione/tree/master/assets/png/1F434.png)
+# musteee
 A University of Western social media platform for class discussions
